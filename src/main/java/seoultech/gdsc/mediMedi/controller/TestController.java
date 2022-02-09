@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 import seoultech.gdsc.mediMedi.entity.Test;
 import seoultech.gdsc.mediMedi.service.TestService;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @RestController
 @RequestMapping("/api/test")
 public class TestController {
@@ -29,13 +32,13 @@ public class TestController {
     }
 
     @PostMapping("")
-    public String postTest(@RequestBody() Test test){
-        return testService.insertTest(test);
+    public IntId postTest(@RequestBody() Test test) {
+        return new IntId(testService.insertTest(test));
     }
 
     @GetMapping("")
-    public String getTest(@RequestBody() IntId intId) {
+    public Test getTest(@RequestBody() IntId intId) {
         Test res = testService.selectTest(intId.getId());
-        return "name: " + res.getName() + ", email: " + res.getEmail();
+        return res;
     }
 }

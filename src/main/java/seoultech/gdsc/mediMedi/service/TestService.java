@@ -14,13 +14,11 @@ public class TestService {
         this.testRepository = testRepository;
     }
 
-    public String insertTest(Test test) {
-        testRepository.save(test);
-        return "success";
+    public int insertTest(Test test) {
+        return testRepository.save(test).getId();
     }
 
     public Test selectTest(int id) {
-        Test test = testRepository.getById(id);
-        return test;
+        return testRepository.findById(id).get();
     }
 }
