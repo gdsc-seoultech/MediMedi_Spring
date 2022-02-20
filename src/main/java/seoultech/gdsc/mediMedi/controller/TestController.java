@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import seoultech.gdsc.mediMedi.entity.Test;
 import seoultech.gdsc.mediMedi.service.TestService;
 
-import java.util.HashSet;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/api/test")
@@ -36,9 +34,10 @@ public class TestController {
         return new IntId(testService.insertTest(test));
     }
 
-    @GetMapping("")
-    public Test getTest(@RequestBody() IntId intId) {
-        Test res = testService.selectTest(intId.getId());
+    @GetMapping("/{id}")
+    public Test getTest(@PathVariable() int id) {
+        Test res = testService.selectTest(id);
         return res;
     }
+
 }
