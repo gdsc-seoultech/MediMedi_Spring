@@ -23,6 +23,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
 
+    // 구글 api 토큰
     @Column(nullable = false)
     private String token;
 
@@ -34,9 +35,6 @@ public class User {
 
     // 초기화면에서 설정
     private Boolean voiceUsage;
-
-    // 초기 화면에서 설정할지, 기본값을 줄지??
-    private Double voiceSpeed;
 
     @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private LocalDateTime registeredAt;
