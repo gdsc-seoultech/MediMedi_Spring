@@ -8,4 +8,5 @@ import java.util.Optional;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
     Optional<User> findUserByToken(@Param(value="token") String token);
+    User getUserByToken(@Param(value="token") String token);
 }

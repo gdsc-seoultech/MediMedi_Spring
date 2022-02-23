@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,7 +37,8 @@ public class User {
     // 초기화면에서 설정
     private Boolean voiceUsage;
 
-    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Column(nullable = false, updatable = false)
+    @CreationTimestamp
     private LocalDateTime registeredAt;
 
     private LocalDateTime withdrewAt;

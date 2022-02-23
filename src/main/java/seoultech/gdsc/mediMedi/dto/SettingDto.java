@@ -16,4 +16,15 @@ public class SettingDto {
         private String name;
         private Boolean voiceUsage;
     }
+
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Getter
+    @Setter
+    public static class Request {
+        private String token;
+        private String email;
+        private String name;
+        private Boolean voiceUsage;
+    }
 }

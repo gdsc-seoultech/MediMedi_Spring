@@ -1,10 +1,7 @@
 package seoultech.gdsc.mediMedi.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import seoultech.gdsc.mediMedi.dto.SettingDto;
 import seoultech.gdsc.mediMedi.response.BasicResponse;
 import seoultech.gdsc.mediMedi.response.FailResponse;
@@ -36,4 +33,13 @@ public class SettingController {
         }
         return new FailResponse<>("존재하지 않는 사용자입니다", new EmptyJsonResponse());
     }
+
+    /*
+    설정 정보 수정
+     */
+//    @PutMapping("")
+//    public BasicResponse putSetting(@RequestBody SettingDto.Request req) {
+//        Optional<SettingDto.Response> res = settingService.updateSetting(req);
+//        if
+//    }
 }
