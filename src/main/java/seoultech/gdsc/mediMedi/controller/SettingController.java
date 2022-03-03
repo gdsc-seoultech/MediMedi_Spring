@@ -33,13 +33,4 @@ public class SettingController {
         }
         return new FailResponse<>("존재하지 않는 사용자입니다", new EmptyJsonResponse());
     }
-
-    /*
-    설정 정보 수정
-     */
-//    @PutMapping("")
-//    public BasicResponse putSetting(@RequestBody SettingDto.Request req) {
-//        Optional<SettingDto.Response> res = settingService.updateSetting(req);
-//        if
-//    }
 }

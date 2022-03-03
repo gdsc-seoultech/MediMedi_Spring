@@ -36,19 +36,4 @@ public class SettingService {
         }
     }
 
-    /*
-    설정 정보 수정
-     */
-//    public String updateSetting(SettingDto.Request req) {
-//        Optional<User> findUser = userRepository.findUserByToken(req.getToken());
-//        if (findUser.isPresent()) {
-//            if (req.getEmail() != ) {
-//
-//            }
-//            // email 중복 확인
-//
-//        } else {
-//            return "존재하지 않는 사용자입니다";
-//        }
-//    }
 }
