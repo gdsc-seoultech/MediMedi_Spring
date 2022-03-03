@@ -10,4 +10,5 @@ import java.util.Optional;
 
 public interface HistoryRepository extends JpaRepository<History, Integer> {
     Optional<History> getByUserAndMedi(User user, Medi medi);
+    List<History> getAllByUserOrderByModifiedAtDesc(User user);
 }
