@@ -1,5 +1,6 @@
 package seoultech.gdsc.mediMedi.service;
 
+import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,13 +15,11 @@ import seoultech.gdsc.mediMedi.response.BasicResponse;
 import seoultech.gdsc.mediMedi.response.FailResponse;
 import seoultech.gdsc.mediMedi.response.SuccessResponse;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class SearchService {
@@ -48,11 +47,18 @@ public class SearchService {
     없으면 fail 결과 return
      */
     public BasicResponse imageSearch(SearchDto.Request req) {
-//        String textFromImg = pythonCall(req.getImageUrl());
-        String textFromImg = "타이레놀, 아세트아미노펜, 일반의약품, 500밀리그람, 밀리그람, "; //임시 string
+        String textFromImg = pythonCall(req.getImageUrl());
         String[] textArr = textFromImg.split(", ");
         HashSet<Medi> searchRes = new HashSet<>();
+        ArrayList<String> stopWords = new ArrayList<>();
+        stopWords.add("연고");
+        stopWords.add("안약");
+
+
         for (String text: textArr) {
+            if (stopWords.contains(text)) {
+                continue;
+            }
             if (searchRes.isEmpty()) {
                 searchRes.addAll(mediRepository.getAllByNameLike("%"+text+"%"));
             } else {
@@ -102,25 +108,64 @@ public class SearchService {
     프로세스 빌더
      */
     public String pythonCall(String url) {
-        String command = "C:\\Users\\twinklesu\\AppData\\Local\\Programs\\Python\\Python38\\python.exe"; //파이썬 path
-        String arg1 = "C:\\Users\\twinklesu\\PycharmProjects\\baekjoon_py\\java_connect_test.py"; // 실행 파일 주소
-        String text = "";
+
+        String command = "C:\\Users\\twinklesu\\AppData\\Local\\Programs\\Python\\Python38\\python.exe "; //파이썬 path
+        String args1 = "C:\\medi\\MediMedi_DL\\detect.py"; // 실행 파일 주소
+
+        String[] splitUrl = url.split("/");
+        String dir = splitUrl[splitUrl.length-1].split("\\.")[0];
+
         try {
-            ProcessBuilder builder = new ProcessBuilder(command, arg1); // 프로세스 생성
+            ProcessBuilder builder = new ProcessBuilder(command, args1, "--source", url); // 프로세스 생성
+            System.out.println("begin first python execution");
+            builder.redirectErrorStream(true);
+            builder.directory(new File("C:\\medi\\MediMedi_DL"));
             Process process = builder.start(); // 프로세스 시작
-            OutputStream output = process.getOutputStream(); // cmd에 글 적기 위해 스트림 생성
-            output.write(url.getBytes(StandardCharsets.UTF_8)); // cmd통해 값 전달
-            output.close(); // 스트림 종료
+            Reader reader = new InputStreamReader(process.getInputStream());
+            int ch;
+            while ((ch = reader.read()) != -1)
+                System.out.print((char) ch); // error output stream 출력
+            reader.close();
             int exitVal = process.waitFor();  // 자식 프로세스가 종료될 때까지 기다림
             if (exitVal != 0) {
                 System.out.println("프로세스 빌더 비정상 종료");
             }
-            InputStream input = process.getInputStream(); // cmd에 적힌 글자 읽어옴
-            text = new String(input.readAllBytes(), StandardCharsets.UTF_8); // 바이트 -> 스트링
-            System.out.println("from ml:" + text); // 자바에 출력(확인)
+            System.out.println("end first python execution"); // 자바에 출력(확인)
         } catch (IOException | InterruptedException e1) {
             e1.printStackTrace();
         }
+
+        String arg2 = "C:\\medi\\MediMedi_DL\\recogn.py";
+        String text = "";
+        try {
+            ProcessBuilder builder = new ProcessBuilder(command, arg2, "--source", url); // 프로세스 생성
+            System.out.println("begin second python execution");
+            builder.directory(new File("C:\\medi\\MediMedi_DL"));
+            Process process = builder.inheritIO().start(); // 프로세스 시작
+            int exitVal = process.waitFor();  // 자식 프로세스가 종료될 때까지 기다림
+            if (exitVal != 0) {
+                System.out.println("프로세스 빌더 비정상 종료");
+            }
+            System.out.println("end second python execution");
+
+        } catch (IOException | InterruptedException e1) {
+             e1.printStackTrace();
+        }
+
+        try {
+            BufferedReader reader = new BufferedReader(
+                    new FileReader("C:\\medi\\MediMedi_DL\\download\\" + dir + "\\result.txt")
+            );
+            String str;
+            while ((str = reader.readLine()) != null) {
+                text = str;
+            }
+            reader.close();
+        } catch (IOException e2) {
+            e2.printStackTrace();
+        }
+
+
         return text;
     }
 }
