@@ -35,6 +35,7 @@ public class HistoryService {
         // 매핑
         List<HistoryDto.ListResponse> res = histories.stream().map(history -> {
             HistoryDto.ListResponse resDto = new HistoryDto.ListResponse();
+            resDto.setId(history.getId());
             resDto.setName(history.getMedi().getName());
             resDto.setDate(history.getModifiedAt().format(DateTimeFormatter.ofPattern("M월 d일 HH:mm")));
             return resDto;
