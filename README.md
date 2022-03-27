@@ -10,6 +10,9 @@ Our ultimate goal is to help blind people distinguish and take drugs without any
 ## Service Results
 화면 녹화 
 
+<BR>
+<BR>
+
 ## Main Features
 - **Searching by picture**
     - The application recognizes the pill box and captures it automatically. The captured box image is sent to server, then, DL model detects and recognizes texts on the pill box. Server uses those recognized texts to search medicine information. User can listen or read the searched information from the application.
@@ -19,14 +22,19 @@ Our ultimate goal is to help blind people distinguish and take drugs without any
    - User can set medicine taking alarm easily. 
 
 ## Demo Video
+![image](https://user-images.githubusercontent.com/68603692/160271179-69e57e36-8bad-40ff-bd1a-5fda6522cd78.png)
 
+<BR>
+<BR>
 
 
 ## Architecture
 ![image](https://user-images.githubusercontent.com/68603692/160264275-af4b2159-2c4f-420f-9a70-71e7aaf4a2b9.png)
 [Andorid Repository](https://github.com/gdsc-seoultech/MediMedi_Android) | [Backend Repository](https://github.com/gdsc-seoultech/MediMedi_Spring) | [Deep Learning Repository](https://github.com/gdsc-seoultech/MediMedi_DL)
 
-
+<BR>
+<BR>
+    
 ## 👨‍👩‍👧‍👦 Team Member
 From [GDSC Seoultech](https://gdsc-seoultech.github.io/)
 
