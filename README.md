@@ -22,7 +22,8 @@ Our ultimate goal is to help blind people distinguish and take drugs without any
    - User can set medicine taking alarm easily. 
 
 ## Demo Video
-![image](https://user-images.githubusercontent.com/68603692/160271179-69e57e36-8bad-40ff-bd1a-5fda6522cd78.png)
+![image](https://user-images.githubusercontent.com/68603692/160271404-5b7e6ad4-419c-4a5d-b188-a9aec0fe1c30.png)
+
 
 <BR>
 <BR>
