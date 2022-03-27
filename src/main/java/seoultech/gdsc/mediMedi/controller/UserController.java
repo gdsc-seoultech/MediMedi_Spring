@@ -31,5 +31,13 @@ public class UserController {
         return new SuccessResponse<>(new EmptyJsonResponse());
     }
 
+    @GetMapping("/{token}")
+    public BasicResponse isJoined(@PathVariable String token) {
+        Boolean result = userService.checkJoined(token);
+        UserDto.IsJoined res = new UserDto.IsJoined();
+        res.setIsJoined(result);
+        return new SuccessResponse<>(res);
+    }
+
 
 }

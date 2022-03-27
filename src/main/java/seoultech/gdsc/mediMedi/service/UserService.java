@@ -43,4 +43,12 @@ public class UserService {
         targetUser.setWithdrewAt(date);
         userRepository.save(targetUser);
     }
+
+    /*
+    join checking
+     */
+    public Boolean checkJoined(String token) {
+        User user = userRepository.getUserByToken(token);
+        return user != null;
+    }
 }

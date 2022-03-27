@@ -24,4 +24,12 @@ public class UserDto {
     public static class Withdraw {
         private String token;
     }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class IsJoined {
+        private Boolean isJoined;
+    }
 }
