@@ -1,7 +1,30 @@
 # 💊 2022 Solution Challenge: MediMedi 💊
 
-## 
+## Service Introduction
+This service is launced to solve [UN SGDs](https://sdgs.un.org/) **10. Reduced Inequalities**, especially a visual impairment. It is addressed to solve blind pill box distinguishing problem. Especially in the case of household medicines, they distinguished those pill boxes by remembering the shape of box and torn part. Currently, in South Korea, only few number of drugs marked with Braille. And even if Braille is written, it is faint or inaccurate, so that makes reading difficult.
+To solve this problem, we developed a mobile application that could **automatically take a picture of a pill box, reads letters on the boxes, and provides the information about it from the database**.  
+The application UI is designed carefully for the blind. The application supports TTS and high-constrast. and has larger UI elements than modern UI standard, large buttons and large lists, for ease of tapping the display without the vision. Also, it supports various tap gestures such as single tapping, double tapping, and holding for feature selection.  
+Our ultimate goal is to help blind people distinguish and take drugs without any help of their guardians.
 
+
+## Service Results
+화면 녹화 
+
+## Main Features
+- **Searching by picture**
+    - The application recognizes the pill box and captures it automatically. The captured box image is sent to server, then, DL model detects and recognizes texts on the pill box. Server uses those recognized texts to search medicine information. User can listen or read the searched information from the application.
+- **History archiving**
+    - Searched history is archived automatically. User can always look up the medicine information he/she searched. 
+- **Medication Alarm**
+   - User can set medicine taking alarm easily. 
+
+## Demo Video
+
+
+
+## Architecture
+![image](https://user-images.githubusercontent.com/68603692/160264275-af4b2159-2c4f-420f-9a70-71e7aaf4a2b9.png)
+[Andorid Repository](https://github.com/gdsc-seoultech/MediMedi_Android) | [Backend Repository](https://github.com/gdsc-seoultech/MediMedi_Spring) | [Deep Learning Repository](https://github.com/gdsc-seoultech/MediMedi_DL)
 
 
 ## 👨‍👩‍👧‍👦 Team Member
