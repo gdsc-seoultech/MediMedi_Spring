@@ -8,7 +8,36 @@ Our ultimate goal is to help blind people distinguish and take drugs without any
 
 
 ## Service Results
-화면 녹화 
+<p align="center">
+
+</p>
+
+<table align="center">
+   <tr>
+      <td>
+          <img src="https://user-images.githubusercontent.com/68603692/160542064-63bd8e01-6371-43d0-93c8-77e8d3e5812d.gif" width="240" height="470"> 
+      </td>       
+      <td>
+        <img src="https://user-images.githubusercontent.com/68603692/160542302-cb5b074d-76a1-47b3-aaa9-6d8cf706e5c4.gif" width="240" height="470">
+      </td>       
+      <td>
+         <img src="https://user-images.githubusercontent.com/68603692/160542409-e7f84080-877c-4354-9ccc-ef87a9b7a5fa.gif" width="240" height="470">
+      </td>       
+   </tr>
+  <tr>
+    <td align="center" vertical-align="middle";>
+        <p>Searching</p>
+    </td>
+     <td align="center">
+         <p>Alarm</p>
+     </td>
+     <td align="center">
+         <p>History</p>
+      </td>
+  </tr>
+</table>
+
+
 
 <BR>
 <BR>
@@ -22,8 +51,7 @@ Our ultimate goal is to help blind people distinguish and take drugs without any
    - User can set medicine taking alarm easily. 
 
 ## Demo Video
-![image](https://user-images.githubusercontent.com/68603692/160271404-5b7e6ad4-419c-4a5d-b188-a9aec0fe1c30.png)
-
+[![thumbnail](https://user-images.githubusercontent.com/68603692/160271404-5b7e6ad4-419c-4a5d-b188-a9aec0fe1c30.png)](https://www.youtube.com/watch?v=fSRUty0So-Y)
 
 <BR>
 <BR>
@@ -39,7 +67,7 @@ Our ultimate goal is to help blind people distinguish and take drugs without any
 ## 👨‍👩‍👧‍👦 Team Member
 From [GDSC Seoultech](https://gdsc-seoultech.github.io/)
 
-<table aligh="center">
+<table align="center">
    <tr>
       <td colspan="2" align="center"><strong>Front-End Developer</strong></td>
       <td colspan="1" align="center"><strong>Back-End Developer</strong></td>
