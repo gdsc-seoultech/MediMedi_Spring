@@ -1,7 +1,7 @@
 # 💊 2022 Solution Challenge: MediMedi 💊
 
 ## Service Introduction
-This service is launced to solve [UN SGDs](https://sdgs.un.org/) **10. Reduced Inequalities**, especially a visual impairment. It is addressed to solve blind pill box distinguishing problem. Especially in the case of household medicines, they distinguished those pill boxes by remembering the shape of box and torn part. Currently, in South Korea, only few number of drugs marked with Braille. And even if Braille is written, it is faint or inaccurate, so that makes reading difficult.
+This service is launched to solve [UN SGDs](https://sdgs.un.org/) **10. Reduced Inequalities**, especially a visual impairment. It is addressed to solve blind pill box distinguishing problem. Especially in the case of household medicines, they distinguished those pill boxes by remembering the shape of box and torn part. Currently, in South Korea, only few number of drugs marked with Braille. And even if Braille is written, it is faint or inaccurate, so that makes reading difficult.
 To solve this problem, we developed a mobile application that could **automatically take a picture of a pill box, reads letters on the boxes, and provides the information about it from the database**.  
 The application UI is designed carefully for the blind. The application supports TTS and high-constrast. and has larger UI elements than modern UI standard, large buttons and large lists, for ease of tapping the display without the vision. Also, it supports various tap gestures such as single tapping, double tapping, and holding for feature selection.  
 Our ultimate goal is to help blind people distinguish and take drugs without any help of their guardians.
